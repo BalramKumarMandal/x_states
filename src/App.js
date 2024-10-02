@@ -59,8 +59,14 @@ const App = () => {
   const handleCityChange = (e) => {
     setSelectedCity(e.target.value);
     setMessage(
-      `You Selected ${e.target.value}, ${selectedState}, ${selectedCountry}`,
+      <>
+        <strong> You selected </strong>
+        <h2> {e.target.value}</h2>, {selectedState}, {selectedCountry}
+      </>,
     );
+    // setMessage(
+    //   `You Selected ${e.target.value}, ${selectedState}, ${selectedCountry}`,
+    // );
   };
   return (
     <div>
@@ -105,7 +111,17 @@ const App = () => {
       </select>
 
       {/* Display Selected Location */}
-      {message && <p>{message}</p>}
+      {message && (
+        <p
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+          }}
+        >
+          {message}
+        </p>
+      )}
     </div>
   );
 };
